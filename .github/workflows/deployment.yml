@@ -24,7 +24,7 @@ jobs:
         run: npm test
 
       - name: Success Notification Test
-        run: echo "🎉 SUCCESS: All automated tests passed beautifully!"
+        run: echo "All automated tests passed beautifully!"
 
   deploy:
     needs: lint-test
