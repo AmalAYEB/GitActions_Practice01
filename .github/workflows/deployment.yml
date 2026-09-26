@@ -1,0 +1,32 @@
+name: CI Pipeline
+on: push
+jobs:
+ lint-test:
+  runs-on: ubuntu-latest
+  steps:
+      - name: Check out coude
+        uses: actions/checkout@v7
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: 24
+          
+      - name: Install Node.js dependencies
+        run: npm ci
+
+      - name: Run linters
+        run: npm run lint
+          
+      - name: Run test
+        run: npm test
+
+      - name: Success Notification Test
+        run: echo "🎉 SUCCESS: All automated tests passed beautifully!"
+   deploy:
+     needs: lint-test
+     runs-on: ubuntu-latest
+     steps:
+       - name: Deploy
+        run: echo "Deploying ..."
+   
