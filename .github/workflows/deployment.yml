@@ -23,6 +23,7 @@ jobs:
 
       - name: Success Notification Test
         run: echo "🎉 SUCCESS: All automated tests passed beautifully!"
+        
    deploy:
      needs: lint-test
      runs-on: ubuntu-latest
